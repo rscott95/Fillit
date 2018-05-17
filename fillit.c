@@ -6,7 +6,7 @@
 /*   By: rscott <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 14:09:53 by rscott            #+#    #+#             */
-/*   Updated: 2018/05/17 14:26:04 by rscott           ###   ########.fr       */
+/*   Updated: 2018/05/17 14:36:56 by rscott           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,8 @@ int		main(int argc, char *argv[])
 	numberoftetris = tetriread(argv, buf);
 	if (numberoftetris != 0)
 	{
-		if (!(checkedtetris = inputchecker(buf, numberoftetris, validcombos, -1)))
+		if (!(checkedtetris = inputchecker(buf,
+						numberoftetris, validcombos, -1)))
 		{
 			ft_putstr("error\n");
 			return (0);

@@ -6,7 +6,7 @@
 /*   By: rscott <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 13:39:48 by rscott            #+#    #+#             */
-/*   Updated: 2018/05/17 14:24:37 by rscott           ###   ########.fr       */
+/*   Updated: 2018/05/17 14:36:14 by rscott           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,8 @@ char	**tetricpy(char *buf, int numberoftetris)
 
 	i = 0;
 	row = 0;
-	if (!(twodarr = (char**)ft_memalloc(sizeof(char *) * numberoftetris + 1)))
+	if (!(twodarr = (char**)ft_memalloc(sizeof(char *)
+					* numberoftetris + 1)))
 		return (0);
 	twodarr[numberoftetris] = 0;
 	while (row < numberoftetris)
@@ -135,7 +136,7 @@ char	**tetricpy(char *buf, int numberoftetris)
 	return (twodarr);
 }
 
-/* 
+/*
 ** [line ??] called from inputchecker.
 ** switches hashes in tetrominos to capital letters.
 */
