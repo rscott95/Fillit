@@ -6,7 +6,7 @@
 /*   By: rscott <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 14:09:53 by rscott            #+#    #+#             */
-/*   Updated: 2018/05/23 13:30:44 by rscott           ###   ########.fr       */
+/*   Updated: 2018/05/23 14:14:16 by rscott           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 
 /*
-** [line 112]	called from main.
+** [line 116]	called from main.
 ** makevalidcombos uses strcpy to place the hardcoded strings of valid
 ** tetromino shapes into the validcombos 2d array.
 */
@@ -44,7 +44,7 @@ void	makevalidcombos(char validcombos[20][15])
 }
 
 /*
-** [line 113]	called from main
+** [line 117]	called from main
 ** tetriread() returns the number of valid tetrominos found in the input
 ** [lines 65-73]	fd stores the file descriptor returned from open();
 ** fd stores the file descriptor returned from running open() on the input.
@@ -55,11 +55,11 @@ void	makevalidcombos(char validcombos[20][15])
 ** buf is the input, i is -1 due to pre-incrementation in shapecheck's loop,
 ** i, widthcount and heightcount are not declared in shapecheck due to
 ** keep the function within 25 lines in length.
-** if shapecheck or countvalidtetris return 0 then the input is invalid
-** and an error is thrown.
+** if shapecheck or countvalidtetris [othertools.c:] return 0,
+** then the input is invalid and an error is thrown.
 */
 
-int	tetriread(char *argv[], char *buf)
+int		tetriread(char *argv[], char *buf)
 {
 	int fd;
 	int validtetrisfound;
@@ -85,18 +85,17 @@ int	tetriread(char *argv[], char *buf)
 		ft_putstr("error\n");
 		return (0);
 	}
-	else
-		return (validtetrisfound);
+	return (validtetrisfound);
 }
 
 /*
-** [line 102]	char validcombos[20][15]; this will store the valid tetrimino
+** [line 106]	char validcombos[20][15]; this will store the valid tetrimino
 ** shapes as strings. there are 19 shapes with a max length of 15.
-** [line 103]	char buf[526]; this will store the input as a string.
+** [line 107]	char buf[526]; this will store the input as a string.
 ** 26 tetriminos is the max input, so 26 * 21 characters + 1 for \0.
-** [line 112]	makevalidcombos uses strcpy to place the hardcoded strings into
+** [line 116]	makevalidcombos uses strcpy to place the hardcoded strings into
 ** the validcombos 2d array
-** [lines 113-123]	reads the input, stores the # of valid tetrominos found.
+** [lines 117-127]	reads the input, stores the # of valid tetrominos found.
 ** throws an error if the input is invalid.
 ** passes the 2d array of valid tetrominos to solver.
 */
