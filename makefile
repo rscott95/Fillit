@@ -6,7 +6,7 @@
 #    By: rscott <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/07 11:02:55 by rscott            #+#    #+#              #
-#    Updated: 2018/05/17 13:43:28 by rscott           ###   ########.fr        #
+#    Updated: 2018/05/23 13:33:59 by rscott           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = fillit
 CFLAGS += -Wall -Wextra -Werror
 CFLAGS += -I libft/
 
-SRC = fillit.c solver.c maphelper.c inputchecker.c
+SRC = fillit.c solver.c maptools.c othertools.c inputchecker.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,11 +6,16 @@
 /*   By: rscott <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 13:40:04 by rscott            #+#    #+#             */
-/*   Updated: 2018/05/17 13:40:16 by rscott           ###   ########.fr       */
+/*   Updated: 2018/05/23 13:32:25 by rscott           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+/*
+**	[solver.c:152] called from solver()
+**	frees the map's memory
+*/
 
 void	freemap(char **map, int mapside)
 {
@@ -25,6 +30,11 @@ void	freemap(char **map, int mapside)
 	free(map);
 }
 
+/*
+**	[solver.c:158] called from solver()
+**	prints the map
+*/
+
 void	printmap(char **map, int mapside)
 {
 	int i;
@@ -38,6 +48,11 @@ void	printmap(char **map, int mapside)
 	}
 }
 
+/*
+**	[solver.c:146] called from solver()
+**	finds the map size based on the number of tetrominos
+*/
+
 int		setsidesize(int numtetris)
 {
 	int i;
@@ -49,6 +64,13 @@ int		setsidesize(int numtetris)
 		i++;
 	return (i);
 }
+
+/*
+**	[solver.c:147] called from solver()
+**	allocates memory for a 2D array to store the empty map.
+**			MAPOFFSET provides extra memory on the right and bottom edges of the
+**			map needed for checking the tetrominos. the map is filled with '.'s.
+*/
 
 char	**makemap(int mapside, int mapsidewithoffset, int i)
 {
@@ -77,15 +99,4 @@ char	**makemap(int mapside, int mapsidewithoffset, int i)
 		ft_bzero(map[i], mapsidewithoffset);
 	}
 	return (map);
-}
-
-/*
-**	called from deletetetri()
-*/
-
-char	getletter(char *tetri)
-{
-	while (*tetri == '.')
-		tetri++;
-	return (*tetri);
 }

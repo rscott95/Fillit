@@ -6,11 +6,16 @@
 /*   By: rscott <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 14:11:11 by rscott            #+#    #+#             */
-/*   Updated: 2018/05/17 13:39:20 by rscott           ###   ########.fr       */
+/*   Updated: 2018/05/23 13:33:22 by rscott           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+/*
+**	[line 124] called from cycle()
+**	removes a tetromino from the map
+*/
 
 void	deletetetri(char **grid, char *tetri, int row, int col)
 {
@@ -37,6 +42,11 @@ void	deletetetri(char **grid, char *tetri, int row, int col)
 	}
 }
 
+/*
+**	[line 120] called from cycle()
+**	places a tetromino on the map
+*/
+
 void	puttetri(char **map, char *tetri, int x, int y)
 {
 	int i;
@@ -59,6 +69,11 @@ void	puttetri(char **map, char *tetri, int x, int y)
 		y++;
 	}
 }
+
+/*
+**	[line 118] called from cycle()
+**	checks for an available spot on the map to place a single tetromino
+*/
 
 int		checkspot(char **map, char *tetri, int x, int y)
 {
@@ -84,6 +99,14 @@ int		checkspot(char **map, char *tetri, int x, int y)
 	return (1);
 }
 
+/*
+**	[line 150] called from solver()
+**	recursive function that checks for the first open spot on the map then
+**	places a tetromino. then checks if the next tetromino will fit [line 121],
+**	and if not, deletes the previously placed tetromino and tries to place it
+**	in the next available spot, then returns to place the next tetromino
+*/
+
 int		cycle(char **map, char **tetri, int x, int y)
 {
 	if (*tetri == 0)
@@ -107,6 +130,13 @@ int		cycle(char **map, char **tetri, int x, int y)
 	}
 	return (0);
 }
+
+/*
+**	[fillit.c:126] called from main()
+**	[line 146-149] sets the size of the map then makes the map
+**	[line 150-157] if cycle returns 0 then the tetrominos can't fit,
+**			so the map is remade one size larger
+*/
 
 int		solver(char **separatedtetris, int numberoftetris)
 {
